@@ -3,110 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registration Form</title>
+<title>Premium Registration</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #e6f2ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-.container {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 350px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-h2 {
-  text-align: center;
-  color: #007acc;
-}
+    .container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 20px;
+        width: 350px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: center;
+    }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .dark-btn {
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        border-radius: 30px;
+        margin-bottom: 15px;
+        display: inline-block;
+        width: 80%;
+    }
 
-input:invalid {
-  border-color: red;
-}
+    h2 {
+        margin-bottom: 20px;
+        color: #003366;
+    }
 
-input:valid {
-  border-color: green;
-}
+    .input-box {
+        margin: 15px 0;
+    }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background: #007acc;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .input-box input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: rgba(255,255,255,0.8);
+    }
 
-button:hover {
-  background: #005f99;
-}
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
 
-.error {
-  color: red;
-  font-size: 12px;
-}
+    button {
+        padding: 12px;
+        border: none;
+        border-radius: 25px;
+        width: 48%;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .register {
+        background: linear-gradient(45deg, #007bff, #00c6ff);
+        color: #fff;
+    }
+
+    .reset {
+        background: #333;
+        color: #fff;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h2>Register</h2>
+    <div class="dark-btn">🌙 Dark Mode</div>
 
-  <form id="form">
+    <h2>✨ Premium Registration</h2>
 
-    <label>Full Name</label>
-    <input type="text" id="name" placeholder="Enter your full name" required>
+    <form>
+        <div class="input-box">
+            <input type="text" placeholder="Full Name" required>
+        </div>
 
-    <label>Email</label>
-    <input type="email" id="email" placeholder="Enter your email" required>
+        <div class="input-box">
+            <input type="email" placeholder="Email" required>
+        </div>
 
-    <label>Password</label>
-    <input type="password" id="password" placeholder="Enter password" required minlength="6">
+        <div class="input-box">
+            <input type="password" placeholder="Password" required>
+        </div>
 
-    <label>Confirm Password</label>
-    <input type="password" id="confirmPassword" placeholder="Confirm password" required>
-
-    <p class="error" id="errorMsg"></p>
-
-    <button type="submit">Register Now</button>
-  </form>
-</div>
-
-<script>
-const form = document.getElementById("form");
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirmPassword");
-const errorMsg = document.getElementById("errorMsg");
-
-form.addEventListener("submit", function(e) {
-  if (password.value !== confirmPassword.value) {
-    e.preventDefault();
-    errorMsg.textContent = "Passwords do not match!";
-  } else {
-    errorMsg.textContent = "";
-    alert("Form Submitted Successfully!");
-  }
-});
-</script>
-
-</body>
-</html>
-    
+        <div class="input-box">
+            <input type="tel" placeholder="Phone Number" required
