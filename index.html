@@ -1,116 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd700, #fff8dc); /* golden + light yellow */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #e6f2ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Form Box */
-form{
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    width: 400px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* Heading */
-h1, h2{
-    text-align: center;
-    color: #b8860b; /* dark golden */
+h2 {
+  text-align: center;
+  color: #007acc;
 }
 
-/* Labels */
-label{
-    font-weight: bold;
-    color: #444;
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* Inputs */
-input, select, textarea{
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0 15px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    transition: 0.3s;
+input:invalid {
+  border-color: red;
 }
 
-/* Focus Effect */
-input:focus, select:focus, textarea:focus{
-    outline: none;
-    border: 2px solid #ffd700;
-    box-shadow: 0 0 10px rgba(255,215,0,0.6);
+input:valid {
+  border-color: green;
 }
 
-/* Button */
-button{
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #ffcc00, #daa520); /* yellow → golden */
-    transition: 0.3s;
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Hover Effect */
-button:hover{
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(218,165,32,0.6);
+button:hover {
+  background: #005f99;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }
 </style>
-    <meta charset="UTF-8">
-    <title>Registration Form</title>
 </head>
+
 <body>
 
-    <h2>Registration Form</h2>
+<div class="container">
+  <h2>Register</h2>
 
-    <form>
+  <form id="form">
 
-        <!-- Full Name -->
-        <label for="name">Full Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name" required>
 
-        <!-- Email -->
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
 
-        <!-- Password -->
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password" required minlength="6">
 
-        <!-- Gender -->
-        <label>Gender:</label><br>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm password" required>
 
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br><br>
+    <p class="error" id="errorMsg"></p>
 
-        <!-- Course/Interest -->
-        <label for="course">Course/Interest:</label><br>
-        <select id="course" name="course">
-            <option value="">--Select--</option>
-            <option value="web">Web Development</option>
-            <option value="app">App Development</option>
-            <option value="ai">Artificial Intelligence</option>
-            <option value="data">Data Science</option>
-        </select><br><br>
+    <button type="submit">Register Now</button>
+  </form>
+</div>
 
-        <!-- Submit Button -->
-        <input type="submit" value="Register">
+<script>
+const form = document.getElementById("form");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const errorMsg = document.getElementById("errorMsg");
 
-    </form>
+form.addEventListener("submit", function(e) {
+  if (password.value !== confirmPassword.value) {
+    e.preventDefault();
+    errorMsg.textContent = "Passwords do not match!";
+  } else {
+    errorMsg.textContent = "";
+    alert("Form Submitted Successfully!");
+  }
+});
+</script>
 
 </body>
 </html>
+    
